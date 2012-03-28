@@ -1,4 +1,6 @@
 Nyilvantartas::Application.routes.draw do
+  resources :members
+
   resources :projects
 
   get "home/index"
