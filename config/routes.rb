@@ -1,4 +1,18 @@
 Nyilvantartas::Application.routes.draw do
+  resources :projects
+
+  get "member/show"
+
+  get "member/new"
+
+  get "member/edit"
+
+  get "member/delete"
+
+  get "member/search"
+
+  get "member/advanced_search"
+
   get "home/index"
 
   # The priority is based upon order of creation:
