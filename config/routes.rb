@@ -1,4 +1,6 @@
 Nyilvantartas::Application.routes.draw do
+  match 'members/search' => 'members#search'
+  match 'members/advanced_search' => 'members#advanced_search'
   resources :members
 
   resources :projects

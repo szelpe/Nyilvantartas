@@ -80,4 +80,14 @@ class MembersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # GET /members/search
+  def search
+    
+  end
+  
+  # GET /members/advanced_search
+  def advanced_search
+  
+  end
 end
