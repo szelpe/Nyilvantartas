@@ -1,4 +1,12 @@
 Nyilvantartas::Application.routes.draw do
+  resources :users
+
+  get "users/new"
+
+  get "users/edit"
+
+  get "users/forgotten"
+
   match 'members/search' => 'members#search'
   match 'members/advanced_search' => 'members#advanced_search'
   resources :members

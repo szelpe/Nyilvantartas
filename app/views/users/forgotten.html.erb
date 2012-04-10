@@ -1,0 +1,10 @@
+<h1>Forgotten password</h1>
+
+<fieldset>
+  <legend>Please, give your email address</legend>
+  <%= form_tag '/users/send_reminder', :method => :post do %>
+    <%= text_field_tag 'email' %>
+    <%= submit_tag "Reminder" %>
+  <% end %>
+</fieldset>
+<%= link_to "Back", :back %>

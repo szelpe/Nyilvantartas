@@ -1,0 +1,38 @@
+<% if logged_in? %>
+Hello User
+<% else %>
+<a href="#" id="login-link">Login</a>
+<fieldset style="display: none" id="login-fieldset">
+	<label>Login</label>
+	<%= form_tag 'sessions/create', :method => :post do %>
+	<div class="label">
+		<%= label_tag 'username', "Username" %>
+	</div>
+	<div class="input">
+		<%= text_field_tag 'username', '', :size => '20' %>
+	</div>
+	<div class="label">
+		<%= label_tag 'password', "Password" %>
+	</div>
+	<div class="input">
+		<%= password_field_tag 'password', '', :size => '20' %>
+	</div>
+	<div>
+		<%= submit_tag "Login" %>
+	</div>
+	<% end %>
+</fieldset>
+<script>
+    document.getElementById('login-link').onclick = function(e) {
+        var fieldset = document.getElementById('login-fieldset');
+        if(fieldset.style.display === 'none') {
+            fieldset.style.display = 'block';
+        } else {
+            fieldset.style.display = 'none';
+        }
+        e.preventDefault();
+        return false;
+    }
+</script>
+
+<% end %>
