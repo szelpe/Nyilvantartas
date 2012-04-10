@@ -1,5 +1,5 @@
 module ApplicationHelper
   def logged_in?
-    false
+    session[:user]
   end
 end
