@@ -1,6 +1,6 @@
 <%= flash[:notice] %><br />
 <% if logged_in? %>
-Hello User
+Hello User! <%= link_to "Logout", "/sessions/destroy" %>
 <% else %>
 <a href="#" id="login-link">Login</a>
 <fieldset style="display: none" id="login-fieldset">
