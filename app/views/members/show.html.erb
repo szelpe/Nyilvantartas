@@ -1,40 +1,44 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <%= image_tag '/pics/' + @member.image_link, :alt => 'profil kép', :style => 'float: right' %>
+</p>
+
+<p>
+  <b>Név:</b>
   <%= @member.name %>
 </p>
 
 <p>
-  <b>Nick:</b>
+  <b>Becenév:</b>
   <%= @member.nick %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Email cím:</b>
   <%= @member.email %>
 </p>
 
 <p>
-  <b>Positions:</b>
+  <b>Betöltött posztok:</b>
   <%= @member.positions %>
 </p>
 
 <p>
-  <b>Is senior:</b>
-  <%= @member.is_senior %>
+  <b>Öreg tag?:</b>
+  <%= @member.is_senior ? :igen : :nem %>
 </p>
 
 <p>
-  <b>Introduction:</b>
+  <b>Bemutatkozás</b>
+  <br />
   <%= @member.introduction %>
 </p>
 
-<p>
-  <b>Image link:</b>
-  <%= @member.image_link %>
-</p>
 
 
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<% if logged_in? %>
+<%= link_to 'Szerkesztés', edit_member_path(@member) %> |
+<% end %>
+<%= link_to 'Vissza', members_path %>
+  <div style="clear: both"></div>

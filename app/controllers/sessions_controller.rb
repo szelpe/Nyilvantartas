@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-    def create
-    @current_user = User.authenticate(params[:username],params[:password])
+  def create
+    @current_user = User.authenticate(params[:username], params[:password])
     if @current_user
       session[:user]=@current_user.id
       redirect_to :back

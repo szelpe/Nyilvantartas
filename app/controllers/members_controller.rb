@@ -57,9 +57,12 @@ class MembersController < ApplicationController
   # PUT /members/1.json
   def update
     @member = Member.find(params[:id])
-
     respond_to do |format|
-      if @member.update_attributes(params[:member])
+        if !params[:member][:image_link].nil?
+          @member.save_image(params[:member])
+        end
+      if @member.update_attributes params[:member]
+        
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,14 +83,14 @@ class MembersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   # GET /members/search
   def search
-    
+
   end
-  
+
   # GET /members/advanced_search
   def advanced_search
-  
+
   end
 end

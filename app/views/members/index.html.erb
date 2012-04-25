@@ -1,35 +1,36 @@
-<h1>Listing members</h1>
+<h1>Taglistázás</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Nick</th>
-    <th>Email</th>
-    <th>Positions</th>
-    <th>Is senior</th>
-    <th>Introduction</th>
-    <th>Image link</th>
+    <th>Név</th>
+    <th>Becenév</th>
+    <th>Email cím</th>
+    <th>Betöltött pozíciók</th>
+    <th>Öreg tag?</th>
+    <% if logged_in? %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @members.each do |member| %>
   <tr>
-    <td><%= member.name %></td>
+    <td><%= link_to member.name, member %></td>
     <td><%= member.nick %></td>
     <td><%= member.email %></td>
     <td><%= member.positions %></td>
-    <td><%= member.is_senior %></td>
-    <td><%= member.introduction %></td>
-    <td><%= member.image_link %></td>
+    <td><%= member.is_senior ? :igen : :nem %></td>
+    <% if logged_in? %>
     <td><%= link_to 'Show', member %></td>
     <td><%= link_to 'Edit', edit_member_path(member) %></td>
     <td><%= link_to 'Destroy', member, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
+<% if logged_in? %>
 <%= link_to 'New Member', new_member_path %>
+<% end %>
