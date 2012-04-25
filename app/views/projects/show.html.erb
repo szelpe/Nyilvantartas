@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Név</b>
   <%= @project.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Leírás</b>
+  <br />
   <%= @project.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<% if logged_in? %>
+<%= link_to 'Szerkesztés', edit_project_path(@project) %> |
+<% end %>
+<%= link_to 'Vissza', projects_path %>

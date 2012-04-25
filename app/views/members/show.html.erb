@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+	<% if !@member.image_link.nil? %>
   <%= image_tag '/pics/' + @member.image_link, :alt => 'profil kép', :style => 'float: right' %>
+  <% end %>
 </p>
 
 <p>
@@ -35,6 +37,17 @@
   <%= @member.introduction %>
 </p>
 
+<p>
+	Projektek, melyekben részt vesz:
+	<ul>
+	<% @member.projects.each do |p| %>
+		<li><%= link_to p.name, p %></li>
+	<% end %>
+	</ul>
+	<% if @member.projects.count == 0 %>
+	Még nem vesz részt egy projektben sem
+	<% end %>
+</p>
 
 
 <% if logged_in? %>

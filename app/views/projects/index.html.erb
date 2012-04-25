@@ -1,25 +1,30 @@
-<h1>Listing projects</h1>
+<h1>Projektek listázása</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
+    <th>Név</th>
+    <th>Leírás</th>
+    <% if logged_in? %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @projects.each do |project| %>
   <tr>
     <td><%= project.name %></td>
     <td><%= project.description %></td>
+    <% if logged_in? %>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Project', new_project_path %>
+<% if logged_in? %>
+<%= link_to 'Új Projekt', new_project_path %>
+<% end %>
