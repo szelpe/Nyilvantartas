@@ -9,6 +9,9 @@
 <body>
 	<%= render 'layouts/loginform' %>
 <h1>Tag nyilvántartás</h1>
+<div>
+	<%= link_to :Tagok, 'members' %> | <%= link_to :Projektek, 'projects' %>
+</div>
 <%= yield %>
 <div id="footer">Copyright &copy; 2012 | Szél Péter</div>
 </body>
