@@ -2,8 +2,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
-
+    @members = Member.where('true').order(params[:order_by])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @members }
@@ -86,7 +85,7 @@ class MembersController < ApplicationController
 
   # GET /members/search
   def search
-    @members = Member.where('name like :s or nick like :s', :s => '%%' + params[:s] + '%%')
+    @members = Member.where('name like :s or nick like :s', :s => '%%' + params[:s] + '%%').order(params[:order_by])
   end
 
   # GET /members/advanced_search
@@ -113,7 +112,7 @@ class MembersController < ApplicationController
       end
 
       if !query.empty?
-        @members = Member.where(query.join(' and '), :name => '%%' + params[:name] + '%%', :nick => '%%' + params[:nick] + '%%', :email => '%%' + params[:email] + '%%', :positions => '%%' + params[:positions] + '%%', :introduction => '%%' + params[:introduction] + '%%')
+        @members = Member.where(query.join(' and '), :name => '%%' + params[:name] + '%%', :nick => '%%' + params[:nick] + '%%', :email => '%%' + params[:email] + '%%', :positions => '%%' + params[:positions] + '%%', :introduction => '%%' + params[:introduction] + '%%').order(params[:order_by])
       else
         @members = []
       end

@@ -1,10 +1,10 @@
 <% if @members.count > 0 %>
 <table>
   <tr>
-    <th>Név</th>
-    <th>Becenév</th>
-    <th>Email cím</th>
-    <th>Betöltött pozíciók</th>
+    <th><%= link_to 'Név', params.merge({:order_by => :name}) %></th>
+    <th><%= link_to 'Becenév', params.merge({:order_by => :nick}) %></th>
+    <th><%= link_to 'Email cím', params.merge({:order_by => :email}) %></th>
+    <th><%= link_to 'Betöltött pozíciók', params.merge({:order_by => :positions})  %> </th>
     <th>Öreg tag?</th>
     <% if logged_in? %>
     <th></th>
