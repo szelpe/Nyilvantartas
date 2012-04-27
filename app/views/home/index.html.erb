@@ -1,10 +1,10 @@
 <p>
 	Üdvözöllek a tagnyilvántartó oldalunkon! Az alábbi szövegbeviteli mező segítségéven kereshetsz a tagok között, vagy választhatod az összetett keresési opciót is.
 </p>
-<%= form_tag '/members/search' do %>
+<%= form_tag '/members/search', :method => :get do %>
 <div>
 	Kererés:
-	<%= text_field_tag :search %>
+	<%= text_field_tag :s %>
 	<%= submit_tag :Keresés %>
 </div>
 <% end %> 

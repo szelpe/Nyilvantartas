@@ -1,0 +1,34 @@
+<h2>Részletes keresés</h2>
+<fieldset>
+	<legend>Keresés</legend>
+	<%= form_tag '/members/advanced_search' do %>
+
+  <div class="field">
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+  <div class="field">
+    <%= label_tag :nick %><br />
+    <%= text_field_tag :nick %>
+  </div>
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email %>
+  </div>
+  <div class="field">
+    <%= label_tag :positions %><br />
+    <%= text_field_tag :positions %>
+  </div>
+  <div class="field">
+    <%= label_tag :is_senior %><br />
+    <%= check_box_tag :is_senior %>
+  </div>
+  <div class="field">
+    <%= label_tag :introduction %><br />
+    <%= text_field_tag :introduction %>
+  </div>
+  <%= submit_tag :Keresés %>
+	<% end %>
+</fieldset>
+
+<%= render 'members/list' %>

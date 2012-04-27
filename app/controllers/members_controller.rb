@@ -58,11 +58,11 @@ class MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     respond_to do |format|
-        if !params[:member][:image_link].nil?
-          @member.save_image(params[:member])
-        end
+      if !params[:member][:image_link].nil?
+        @member.save_image(params[:member])
+      end
       if @member.update_attributes params[:member]
-        
+
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }
         format.json { head :no_content }
       else
@@ -86,11 +86,37 @@ class MembersController < ApplicationController
 
   # GET /members/search
   def search
-
+    @members = Member.where('name like :s or nick like :s', :s => '%%' + params[:s] + '%%')
   end
 
   # GET /members/advanced_search
   def advanced_search
+    if !params.empty?
+      query = Array.new
+      if !params[:name].nil? and !params[:name].empty?
+        query.append 'name like :name'
+      end
+      if !params[:nick].nil? and !params[:nick].empty?
+        query.append 'nick like :nick'
+      end
+      if !params[:email].nil? and !params[:email].empty?
+        query.append 'email like :email'
+      end
+      if !params[:introduction].nil? and !params[:introduction].empty?
+        query.append 'introduction like :introduction'
+      end
+      if !params[:introduction].nil? and !params[:positions].empty?
+        query.append 'positions like :positions'
+      end
+      if !params[:is_senior].nil?
+        query.append 'is_senior = 1'
+      end
 
+      if !query.empty?
+        @members = Member.where(query.join(' and '), :name => '%%' + params[:name] + '%%', :nick => '%%' + params[:nick] + '%%', :email => '%%' + params[:email] + '%%', :positions => '%%' + params[:positions] + '%%', :introduction => '%%' + params[:introduction] + '%%')
+      else
+        @members = []
+      end
+    end
   end
 end
