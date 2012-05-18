@@ -1,13 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+userOne:
+  username: szelpe
+  password: <%= User.encrypt('pass', 'so') %>
+  salt: so
+  email: szelpe@gmail.com
 
-one:
-  username: MyString
-  password: MyString
-  salt: MyString
-  email: MyString
-
-two:
-  username: MyString
-  password: MyString
-  salt: MyString
-  email: MyString
+userTwo:
+  username: user1
+  password: <%= User.encrypt('pass', 'sotlan') %>
+  salt: sotlan
+  email: user@example.com

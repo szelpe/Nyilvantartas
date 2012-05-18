@@ -1,9 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+ProjectOne:
+  name: "Elso projekt"
+  description: "Ez egy szuper jo projekt!"
 
-one:
-  name: MyString
-  description: MyText
-
-two:
-  name: MyString
-  description: MyText
+ProjectTwo:
+  name: "Masodik projekt"
+  description: "Ez a masodik szuper projekt leirasa"
+  members: [ memberTwo ]

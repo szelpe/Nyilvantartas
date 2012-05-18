@@ -1,19 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  name: MyString
-  nick: MyString
-  email: MyString
-  positions: MyText
+memberOne:
+  name: Janos
+  nick: jancsi
+  email: jancsi@janos.hu
+  positions: Szupravezeto
   is_senior: false
-  introduction: MyText
-  image_link: MyString
+  introduction: "Ez egy szep bemutatkozas"
+  image_link: nincs
 
-two:
-  name: MyString
-  nick: MyString
-  email: MyString
-  positions: MyText
-  is_senior: false
-  introduction: MyText
-  image_link: MyString
+memberTwo:
+  name: Laszlo
+  nick: laci
+  email: laci@janos.hu
+  positions: Hipermarket
+  is_senior: true
+  introduction: "Hallo hallo"
+  image_link: nincs
