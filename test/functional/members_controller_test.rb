@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MembersControllerTest < ActionController::TestCase
   setup do
-    @member = members(:one)
+    @member = members(:memberOne)
   end
 
   test "should get index" do

@@ -9,3 +9,9 @@ userTwo:
   password: <%= User.encrypt('pass', 'sotlan') %>
   salt: sotlan
   email: user@example.com
+  
+userTHree:
+  username: user2
+  password: <%= User.encrypt('pass', 'sotlan') %>
+  salt: sotlan
+  email: user@example.com
